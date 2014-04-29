@@ -303,6 +303,9 @@ module.exports = function (grunt) {
         }
     });
 
+    grunt.loadNpmTasks('grunt-contrib-compass');
+    grunt.loadNpmTasks('grunt-react');
+
     grunt.registerTask('createDefaultTemplate', function () {
         grunt.file.write('.tmp/scripts/templates.js', 'this.JST = this.JST || {};');
     });
@@ -387,5 +390,4 @@ module.exports = function (grunt) {
         'build'
     ]);
 
-    grunt.loadNpmTasks('grunt-contrib-compass');
 };

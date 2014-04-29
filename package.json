@@ -26,7 +26,8 @@
     "connect-livereload": "~0.3.2",
     "time-grunt": "~0.2.8",
     "jshint-stylish": "~0.1.5",
-    "grunt-contrib-compass": "^0.7.2"
+    "grunt-contrib-compass": "^0.7.2",
+    "grunt-react": "^0.8.2"
   },
   "engines": {
     "node": ">=0.10.0"

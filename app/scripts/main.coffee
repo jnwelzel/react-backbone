@@ -6,8 +6,14 @@ require.config
     jquery: '../bower_components/jquery/dist/jquery'
     backbone: '../bower_components/backbone/backbone'
     underscore: '../bower_components/underscore/underscore'
+    foundation: '../bower_components/foundation/js/foundation'
 
 require [
-  'backbone'
+  'jquery',
+  'backbone',
+  'underscore',
+  'foundation'
 ], (Backbone) ->
-  Backbone.history.start()
+  # Backbone.history.start()
+  console.log 'Surprise motherfucker!'
+  return
