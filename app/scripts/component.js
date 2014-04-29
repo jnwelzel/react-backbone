@@ -15,7 +15,7 @@ define(['require', 'react', 'models/example'], function(require) {
     },
     render: function() {
       return (
-        React.DOM.p(null, "Hello, world! I am a React component called \"",this.props.model.get('name'),"\" and created by \"",this.props.model.get('author'),"\".")
+        React.DOM.p(null, "Hello, world! I am a React component called ", React.DOM.strong(null, "\"",this.props.model.get('name'),"\""), " and created by ", React.DOM.strong(null, "\"",this.props.model.get('author'),"\""),".")
       );
     }
   })

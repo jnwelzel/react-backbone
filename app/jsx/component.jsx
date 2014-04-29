@@ -15,7 +15,7 @@ define(['require', 'react', 'models/example'], function(require) {
     },
     render: function() {
       return (
-        <p>Hello, world! I am a React component called "{this.props.model.get('name')}" and created by "{this.props.model.get('author')}".</p>
+        <p>Hello, world! I am a React component called <strong>"{this.props.model.get('name')}"</strong> and created by <strong>"{this.props.model.get('author')}"</strong>.</p>
       );
     }
   })

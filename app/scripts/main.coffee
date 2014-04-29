@@ -11,7 +11,6 @@ require.config
     react: '../bower_components/react/react'
   shim:
     'foundation': ['jquery']
-    'component' : 'models/example'
 
 require [
   'backbone',
