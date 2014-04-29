@@ -10,7 +10,12 @@ require.config
     foundation: '../bower_components/foundation/js/foundation'
     react: '../bower_components/react/react'
   shim:
-    'foundation': ['jquery']
+    foundation: ['jquery']
+    underscore:
+      exports: '_'
+    backbone:
+      deps: ['underscore', 'jquery']
+      exports: 'Backbone'
 
 require [
   'backbone',
