@@ -7,13 +7,19 @@ require.config
     backbone: '../bower_components/backbone/backbone'
     underscore: '../bower_components/underscore/underscore'
     foundation: '../bower_components/foundation/js/foundation'
+    react: '../bower_components/react/react'
+    component: 'component'
+  shim:
+    'foundation': ['jquery']
 
 require [
-  'jquery',
   'backbone',
+  'jquery',
   'underscore',
-  'foundation'
-], (Backbone) ->
-  # Backbone.history.start()
+  'foundation',
+  'react',
+  'component'
+], (backbone, jquery, underscore, foundation, react, component) ->
+  # backbone and react objects
   console.log 'Surprise motherfucker!'
   return

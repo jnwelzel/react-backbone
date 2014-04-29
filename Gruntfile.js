@@ -27,6 +27,16 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
         yeoman: yeomanConfig,
+        shell: {
+            'build-jsx': {
+                command: [
+                    'jsx -x jsx <%= yeoman.app %>/jsx/ <%= yeoman.app %>/scripts/',
+                    'rm -rf <%= yeoman.app %>/scripts/.module-cache/'
+                ].join(' && '),
+                stdout: true,
+                failOnError: true
+            }
+        },
         watch: {
             options: {
                 nospawn: true,
@@ -304,7 +314,11 @@ module.exports = function (grunt) {
     });
 
     grunt.loadNpmTasks('grunt-contrib-compass');
-    grunt.loadNpmTasks('grunt-react');
+    grunt.loadNpmTasks('grunt-shell');
+
+    grunt.registerTask('jsx', [
+        'shell:build-jsx'
+    ]);
 
     grunt.registerTask('createDefaultTemplate', function () {
         grunt.file.write('.tmp/scripts/templates.js', 'this.JST = this.JST || {};');
