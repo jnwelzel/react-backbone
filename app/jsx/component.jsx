@@ -3,20 +3,44 @@
  */
 'use strict';
 
-define(['require', 'react'], function(require) {
+define(['require', 'react', 'models/example'], function(require) {
   var React = require('react');
-  var CommentBox = React.createClass({
+  var ExampleModel = require('models/example');
+
+  var DisplayView = React.createClass({
+    componentDidMount: function() {
+      this.props.model.on('change', function() {
+        this.forceUpdate();
+      }.bind(this));
+    },
     render: function() {
-      console.log("rendering react component")
       return (
-        <div className="commentBox">
-          Hello, world! I am a React component.
-        </div>
+        <p>Hello, world! I am a React component called "{this.props.model.get('name')}" and created by "{this.props.model.get('author')}".</p>
+      );
+    }
+  })
+
+  var ToggleView = React.createClass({
+    handleClick: function() {
+      this.props.model.set('name', 'React');
+      this.props.model.set('author', 'Facebook');
+    },
+    render: function() {
+      return (
+        <button onClick={this.handleClick}>
+          model.set('name', 'React');
+          model.set('author', 'Facebook');
+        </button>
       );
     }
   });
-  React.renderComponent(
-    <CommentBox />,
-    document.getElementById('comment-box')
-  );
+
+  var model = new ExampleModel();
+
+  React.renderComponent((
+    <span>
+      <DisplayView model={model} />
+      <ToggleView model={model} />
+    </span>
+  ), document.getElementById('comment-box'))
 });
